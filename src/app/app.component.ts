@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ApplicationSearchResult} from "./model/application.search.result";
 
@@ -28,15 +28,15 @@ export class AppComponent {
                   version: '1.0.0',
                   status: 'Deployed',
                   pods: [
-                    { status: 'Running' },
-                    { status: 'Running' },
+                    {status: 'Running'},
+                    {status: 'Running'},
                   ],
                 },
                 {
                   version: '1.1.0',
                   status: 'Pending',
                   pods: [
-                    { status: 'Pending' },
+                    {status: 'Pending'},
                   ],
                 },
               ],
@@ -52,8 +52,8 @@ export class AppComponent {
                   version: '2.0.0',
                   status: 'Failed',
                   pods: [
-                    { status: 'Failed' },
-                    { status: 'Failed' },
+                    {status: 'Failed'},
+                    {status: 'Failed'},
                   ],
                 },
               ],
@@ -74,9 +74,9 @@ export class AppComponent {
                   version: '3.0.0',
                   status: 'Deployed',
                   pods: [
-                    { status: 'Running' },
-                    { status: 'Running' },
-                    { status: 'Running' },
+                    {status: 'Running'},
+                    {status: 'Running'},
+                    {status: 'Running'},
                   ],
                 },
               ],
@@ -92,10 +92,11 @@ export class AppComponent {
   }
 
   onSearchButtonPressed() {
-    this.httpClient.get("http://localhost:8080/search?applicationName=" + this.applicationNameSearchInput)
+    this.httpClient.get("http://127.0.0.1:8080/master-deployer-srv/1.0/applications/" + this.applicationNameSearchInput + "/summary")
         .subscribe((response: Object) => {
           this.applicationSearchResult = response as ApplicationSearchResult;
         }, error => {
+          console.log(error);
           this.applicationSearchResult = this.applicationSearchResultMock;
         });
   }
