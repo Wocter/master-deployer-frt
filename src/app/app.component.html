@@ -3,27 +3,38 @@
   <input type="text" placeholder="application-name" [(ngModel)]="applicationNameSearchInput" />
   <button (click)="onSearchButtonPressed()">Search</button>
 </div>
-<table *ngFor="let environment of applicationSearchResult?.environments">
+<table class="application-artifacts-matrix" *ngIf="applicationSearchResult?.environments?.length">
+  <thead>
   <tr>
     <th>Tenant</th>
-    <th>{{ environment.name }}</th>
+    <th *ngFor="let environment of applicationSearchResult?.environments">
+      {{ environment.environment }}
+    </th>
   </tr>
-  <ng-container *ngFor="let tenant of environment.tenants">
-    <tr>
-      <td>{{ tenant.name }}</td>
-      <td>
-        <div>{{tenant.application.name}}</div>
-        <div>{{tenant.application.status}}</div>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tenantName of getTenantNames()">
+    <td>{{ tenantName }}</td>
+    <td *ngFor="let environment of applicationSearchResult?.environments">
+      <ng-container *ngIf="getTenantInEnvironment(environment, tenantName) as tenant">
+        <div>{{ tenant.application.name }}</div>
+        <div>{{ tenant.application.status }}</div>
         <ng-container *ngFor="let deployment of tenant.application.deployments">
-          <div>{{ deployment.version }}</div>
-          <div>{{ deployment.status }}</div>
-          <div>
-            <ng-container *ngFor="let pod of deployment.pods">
-              <div>{{ pod.status }}</div>
-            </ng-container>
+          <div class="deployment">
+            <div class="deployment-version">{{ deployment.version }}</div>
+            <div class="deployment-status">{{ deployment.status }}</div>
+            <div class="pods">
+              <div class="pod" *ngFor="let pod of deployment.pods">
+                {{ pod.status }}
+              </div>
+            </div>
           </div>
         </ng-container>
-      </td>
-    </tr>
-  </ng-container>
+      </ng-container>
+      <ng-container *ngIf="!getTenantInEnvironment(environment, tenantName)">
+        <span class="empty">—</span>
+      </ng-container>
+    </td>
+  </tr>
+  </tbody>
 </table>

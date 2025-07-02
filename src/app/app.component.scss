@@ -1,0 +1,44 @@
+.application-artifacts-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: #f5f5f5;
+    text-align: center;
+  }
+
+  .deployment {
+    margin-top: 0.5rem;
+    background-color: #fafafa;
+    padding: 0.5rem;
+    border-left: 4px solid #ccc;
+
+    .deployment-version {
+      font-weight: bold;
+    }
+
+    .pods {
+      margin-top: 0.25rem;
+
+      .pod {
+        font-size: 0.85rem;
+        margin-left: 0.5rem;
+        &:before {
+          content: "• ";
+        }
+      }
+    }
+  }
+
+  .empty {
+    color: #aaa;
+    font-style: italic;
+  }
+}

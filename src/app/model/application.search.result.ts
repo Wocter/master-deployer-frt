@@ -2,12 +2,12 @@ export class ApplicationSearchResult {
   environments: Environment[];
 }
 
-class Environment {
-  name: string;
+export class Environment {
+  environment: string;
   tenants: Tenant[];
 }
 
-class Tenant {
+export class Tenant {
   name: string;
   application: Application;
 }
@@ -16,6 +16,7 @@ class Application {
   name: string;
   status: string;
   deployments: Deployment[];
+
 }
 
 class Deployment {
