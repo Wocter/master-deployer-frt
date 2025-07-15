@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ApplicationSearchResult} from "./model/application.search.result";
 import {Tenant} from "./model/application.search.result";
+import {ResourceStatus} from "./model/resource-status";
 
 @Component({
   selector: 'app-root',
@@ -23,14 +24,14 @@ export class AppComponent {
             "name": "syltferry",
             "application": {
               "name": "ferry-boarding-srv-syltferry-test",
-              "status": "Healthy",
+              "status": "Unhealthy",
               "deployments": [
                 {
                   "version": "v1",
-                  "status": "Healthy",
+                  "status": "Unhealthy",
                   "pods": [
                     {
-                      "status": "Healthy"
+                      "status": "Unhealthy"
                     }
                   ]
                 }
@@ -41,14 +42,14 @@ export class AppComponent {
             "name": "baltic",
             "application": {
               "name": "ferry-boarding-srv-baltic-test",
-              "status": "Healthy",
+              "status": "Syncing",
               "deployments": [
                 {
                   "version": "v1",
-                  "status": "Healthy",
+                  "status": "Syncing",
                   "pods": [
                     {
-                      "status": "Healthy"
+                      "status": "Syncing"
                     }
                   ]
                 }
@@ -59,14 +60,14 @@ export class AppComponent {
             "name": "rh",
             "application": {
               "name": "ferry-boarding-srv-rh-test",
-              "status": "Healthy",
+              "status": "OutOfSync",
               "deployments": [
                 {
                   "version": "v1",
-                  "status": "Healthy",
+                  "status": "OutOfSync",
                   "pods": [
                     {
-                      "status": "Healthy"
+                      "status": "OutOfSync"
                     }
                   ]
                 }
@@ -397,10 +398,10 @@ export class AppComponent {
                   "status": "Healthy",
                   "pods": [
                     {
-                      "status": "Healthy"
+                      "status": "Syncing"
                     },
                     {
-                      "status": "Healthy"
+                      "status": "OutOfSync"
                     }
                   ]
                 }
@@ -448,6 +449,21 @@ export class AppComponent {
                       "status": "Healthy"
                     }
                   ]
+                },
+                {
+                  "version": "v2",
+                  "status": "Healthy",
+                  "pods": [
+                    {
+                      "status": "Healthy"
+                    },
+                    {
+                      "status": "Unhealthy"
+                    },
+                    {
+                      "status": "Healthy"
+                    }
+                  ]
                 }
               ]
             }
@@ -490,4 +506,6 @@ export class AppComponent {
   getTenantInEnvironment(environment: any, tenantName: string): any | null {
     return environment.tenants.find((t: Tenant) => t.name === tenantName) || null;
   }
+
+  protected readonly ApplicationStatus = ResourceStatus;
 }

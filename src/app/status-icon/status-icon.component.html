@@ -1,0 +1,8 @@
+<span [ngSwitch]="status" class="status-icon">
+  <lucide-icon name="heart" *ngSwitchCase="ResourceStatus.HEALTHY"/>
+  <lucide-icon name="heart-crack" *ngSwitchCase="ResourceStatus.UNHEALTHY"/>
+  <lucide-icon name="refresh-cw" *ngSwitchCase="ResourceStatus.SYNCING"/>
+  <lucide-icon name="circle-alert" *ngSwitchCase="ResourceStatus.OUT_OF_SYNC"/>
+  <lucide-icon name="circle-question-mark" *ngSwitchDefault/>
+  <span>{{ text }}</span>
+</span>

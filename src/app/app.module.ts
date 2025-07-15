@@ -3,14 +3,25 @@ import {AppComponent} from "./app.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {provideHttpClient} from "@angular/common/http";
+import {
+  CircleAlert,
+  CircleQuestionMark,
+  Heart,
+  HeartCrack,
+  LucideAngularModule,
+  RefreshCw
+} from "lucide-angular";
+import {StatusIconComponent} from "./status-icon/status-icon.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StatusIconComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    LucideAngularModule.pick({Heart, HeartCrack, RefreshCw, CircleAlert, CircleQuestionMark})
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
