@@ -176,7 +176,7 @@ export class AppComponent {
             "name": "baltic",
             "application": {
               "name": "ferry-boarding-srv-baltic-uat",
-              "status": "Healthy",
+              "status": "Syncing",
               "deployments": [
                 {
                   "version": "v1",
@@ -187,6 +187,18 @@ export class AppComponent {
                     },
                     {
                       "status": "Healthy"
+                    }
+                  ]
+                },
+                {
+                  "version": "v2",
+                  "status": "Syncing",
+                  "pods": [
+                    {
+                      "status": "Healthy"
+                    },
+                    {
+                      "status": "Syncing"
                     }
                   ]
                 }

@@ -12,11 +12,15 @@ import {
   RefreshCw
 } from "lucide-angular";
 import {StatusIconComponent} from "./status-icon/status-icon.component";
+import {
+  StatusClassDirective
+} from "./directives/resource-status-class/resource-status-class.directive";
 
 @NgModule({
   declarations: [
     AppComponent,
     StatusIconComponent,
+    StatusClassDirective
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,32 @@
+.healthy {
+  background-color: springgreen;
+}
+
+.unhealthy {
+  background-color: red;
+}
+
+.syncing {
+  background-color: deepskyblue;
+}
+
+.out-of-sync {
+  background-color: yellow;
+}
+
+.frame-box {
+  padding: 0.5rem;
+  border: 4px solid midnightblue;
+  border-radius: 1.5rem;
+}
+
 .application-artifacts-matrix {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
 
   th, td {
-    border: 1px solid #ccc;
-    padding: 0.75rem;
+    border-color: transparent;
     vertical-align: top;
   }
 
@@ -16,11 +37,6 @@
 
   .deployment {
     margin-top: 0.5rem;
-    background-color: #fafafa;
-    padding: 0.5rem;
-    border-bottom: 4px solid #ccc;
-    border-right: 4px solid #ccc;
-    border-radius: 30px;
 
     .deployment-version {
       font-weight: bold;
@@ -34,9 +50,6 @@
       .pod {
         font-size: 0.85rem;
         margin-left: 0.5rem;
-        &:before {
-          content: "• ";
-        }
       }
     }
   }
