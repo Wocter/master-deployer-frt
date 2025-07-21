@@ -18,19 +18,19 @@
     <td *ngFor="let environment of applicationSearchResult?.environments">
       <div *ngIf="getTenantInEnvironment(environment, tenantName) as tenant"
            [resourceStatusClass]="tenant.application.status"
-           class="application frame-box d-flex align-items-center">
+           class="application frame-box">
         <span>{{ tenant.application.name }}</span>
         <status-icon [status]="tenant.application.status" [text]="tenant.application.status" />
         <ng-container *ngFor="let deployment of tenant.application.deployments">
           <div [resourceStatusClass]="deployment.status" class="frame-box deployment">
-            <div class="deployment-version d-flex align-items-center">
-              <span class="flex-item"> {{ deployment.version }} </span>
+            <div class="deployment-version">
+              <span> {{ deployment.version }} </span>
               <status-icon
                   [status]="deployment.status"
                   [text]="deployment.status"
                   class="deployment-status d-inline-block"/>
             </div>
-            <div class="pods d-flex align-items-start">
+            <div class="pods">
               <ng-container class="pod" *ngFor="let pod of deployment.pods">
                 <status-icon [status]="pod.status" [text]="pod.status" [resourceStatusClass]="pod.status" class="pod frame-box"/>
               </ng-container>

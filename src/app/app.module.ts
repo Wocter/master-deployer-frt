@@ -15,6 +15,7 @@ import {StatusIconComponent} from "./status-icon/status-icon.component";
 import {
   StatusClassDirective
 } from "./directives/resource-status-class/resource-status-class.directive";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {
   imports: [
     BrowserModule,
     FormsModule,
-    LucideAngularModule.pick({Heart, HeartCrack, RefreshCw, CircleAlert, CircleQuestionMark})
+    LucideAngularModule.pick({Heart, HeartCrack, RefreshCw, CircleAlert, CircleQuestionMark}),
+    NgbModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
