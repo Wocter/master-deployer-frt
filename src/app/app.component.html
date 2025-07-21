@@ -16,15 +16,15 @@
   <tr *ngFor="let tenantName of getTenantNames()">
     <td>{{ tenantName }}</td>
     <td *ngFor="let environment of applicationSearchResult?.environments">
-      <div *ngIf="getTenantInEnvironment(environment, tenantName) as tenant" [resourceStatusClass]="tenant.application.status" class="frame-box">
-        <div>{{ tenant.application.name }}</div>
-        <div>
-          <status-icon [status]="tenant.application.status" [text]="tenant.application.status" />
-        </div>
+      <div *ngIf="getTenantInEnvironment(environment, tenantName) as tenant"
+           [resourceStatusClass]="tenant.application.status"
+           class="application frame-box d-flex align-items-center">
+        <span>{{ tenant.application.name }}</span>
+        <status-icon [status]="tenant.application.status" [text]="tenant.application.status" />
         <ng-container *ngFor="let deployment of tenant.application.deployments">
           <div [resourceStatusClass]="deployment.status" class="frame-box deployment">
             <div class="deployment-version d-flex align-items-center">
-              <span class="me-2"> {{ deployment.version }} </span>
+              <span class="flex-item"> {{ deployment.version }} </span>
               <status-icon
                   [status]="deployment.status"
                   [text]="deployment.status"

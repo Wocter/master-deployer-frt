@@ -1,22 +1,26 @@
 .healthy {
-  background-color: springgreen;
+  color: #e0ffe0;
+  background: linear-gradient(to top, #1f4f2e, #2e8b57);
 }
 
 .unhealthy {
-  background-color: red;
+  color: #ffeaea;
+  background: linear-gradient(to top, #4a1f1f, #b34747);
 }
 
 .syncing {
-  background-color: deepskyblue;
+  color: #dceeff;
+  background: linear-gradient(to top, #1e2a40, #3b5998);
 }
 
 .out-of-sync {
-  background-color: yellow;
+  color: #fff9e0;
+  background: linear-gradient(to top, #40341e, #d9a441);
 }
 
 .frame-box {
   padding: 0.5rem;
-  border: 4px solid midnightblue;
+  border: 4px solid #1a1a1a;
   border-radius: 1.5rem;
 }
 
@@ -35,21 +39,26 @@
     text-align: center;
   }
 
-  .deployment {
-    margin-top: 0.5rem;
+  .application {
 
-    .deployment-version {
-      font-weight: bold;
-      display: inline-flex;
+    .deployment {
+      margin-top: 0.5rem;
       align-items: center;
-    }
 
-    .pods {
-      margin-top: 0.25rem;
+      .deployment-version {
+        font-weight: bold;
+         align-items: center;
+      }
 
-      .pod {
-        font-size: 0.85rem;
-        margin-left: 0.5rem;
+      .pods {
+        margin-top: 0.25rem;
+        display: inline-flex;
+        align-items: center;
+
+        .pod {
+          font-size: 0.85rem;
+          margin-left: 0.5rem;
+        }
       }
     }
   }
