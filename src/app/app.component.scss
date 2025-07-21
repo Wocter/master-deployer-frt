@@ -29,31 +29,30 @@
   border-collapse: collapse;
   margin-top: 1rem;
 
-  th, td {
-    border-color: transparent;
-    vertical-align: top;
-  }
-
   th {
-    background-color: #f5f5f5;
+    background-color: transparent;
     text-align: center;
   }
 
+  .tenant {
+    border-color: transparent;
+    text-align: center;
+    font-weight: bold;
+  }
+
   .application {
+    font-weight: bold;
 
     .deployment {
       margin-top: 0.5rem;
-      align-items: center;
 
       .deployment-version {
         font-weight: bold;
-         align-items: center;
       }
 
       .pods {
-        margin-top: 0.25rem;
-        display: inline-flex;
-        align-items: center;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
 
         .pod {
           font-size: 0.85rem;

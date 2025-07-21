@@ -14,21 +14,25 @@
   </thead>
   <tbody>
   <tr *ngFor="let tenantName of getTenantNames()">
-    <td>{{ tenantName }}</td>
+    <td class="tenant">{{ tenantName }}</td>
     <td *ngFor="let environment of applicationSearchResult?.environments">
       <div *ngIf="getTenantInEnvironment(environment, tenantName) as tenant"
            [resourceStatusClass]="tenant.application.status"
            class="application frame-box">
-        <span>{{ tenant.application.name }}</span>
-        <status-icon [status]="tenant.application.status" [text]="tenant.application.status" />
+        <div class="d-flex">
+          <span>{{ tenant.application.name }}</span>
+          <status-icon [status]="tenant.application.status"
+                       [text]="tenant.application.status"
+                       class="ms-auto"/>
+        </div>
         <ng-container *ngFor="let deployment of tenant.application.deployments">
           <div [resourceStatusClass]="deployment.status" class="frame-box deployment">
-            <div class="deployment-version">
+            <div class="deployment-version d-flex">
               <span> {{ deployment.version }} </span>
               <status-icon
                   [status]="deployment.status"
                   [text]="deployment.status"
-                  class="deployment-status d-inline-block"/>
+                  class="ms-auto"/>
             </div>
             <div class="pods">
               <ng-container class="pod" *ngFor="let pod of deployment.pods">
